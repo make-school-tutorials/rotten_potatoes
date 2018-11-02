@@ -1,12 +1,17 @@
 const express = require('express')
 const app = express()
 
+const bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
 const mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/rotten-potatoes')
 
 const Review = mongoose.model('Review', {
-    title: String,
-    movieTitle: String
+    reviewTitle: String,
+    movieTitle: String,
+    description: String
 })
 
 var exphbs = require('express-handlebars')
@@ -30,6 +35,21 @@ app.get('/', (req, res) => {
         .catch(err => {
             console.log(err);
         })
+})
+
+// NEW
+app.get('/reviews/new', (req, res) => {
+    res.render('reviews-new', {});
+})
+
+app.post('/reviews', (req, res) => {
+    Review.create(req.body).then((review) => {
+        console.log(review);
+        res.redirect('/');
+    }).catch((err) => {
+        console.log(err.message)
+    })
+    // res.render('reviews-new', {});
 })
 
 app.listen(3000, () => {
