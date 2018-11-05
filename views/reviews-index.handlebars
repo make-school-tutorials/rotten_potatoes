@@ -4,7 +4,5 @@
 <a href="/reviews/new">New Review</a>
 
 {{#each reviews}}
-    <h2>{{this.movieTitle}}</h2>
-    <h3>{{this.reviewTitle}}</h3>
-    <small>{{this.description}}</small>
+    <h2><a href="/reviews/{{this._id}}">{{this.reviewTitle}}</a></h2>
 {{/each}}
