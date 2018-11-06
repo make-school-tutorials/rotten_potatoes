@@ -1,9 +1,11 @@
-<form method="POST" action="/reviews">
-    {{> reviews-form}}
-
-    <p>
-        <button type="submit">Save Review</button>
-        <input type="button" value="Cancel" onclick="window.location.href='/'" />
-    </p>
-
-</form>
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+        <form method="POST" action="/reviews">
+            {{> reviews-form}}
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Save Review</button>
+                <input class="btn btn-primary" type="button" value="Cancel" onclick="window.location.href='/'" />
+            </div>
+        </form>
+    </div>
+</div>

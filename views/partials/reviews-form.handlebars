@@ -1,31 +1,32 @@
 <fieldset>
     <legend>Review</legend>
     <!-- REVIEWTITLE -->
-    <p>
+    <div class="form-group">
         <label for="reviewTitle">Title</label><br>
-        <input id="reviewTitle" type="text" name="reviewTitle" value="{{review.reviewTitle}}" />
-    </p>
+        <input class="form-contol" id="reviewTitle" type="text" name="reviewTitle" value="{{review.reviewTitle}}" />
+    </div>
 
     <!-- MOVIE TITLE -->
-    <p>
+    <div class="form-group">
         <label for="movie-title">Movie Title</label><br>
-        <input id="movie-title" type="text" name="movieTitle" value="{{review.movieTitle}}" />
-    </p>
+        <input class="form-contol" id="movie-title" type="text" name="movieTitle" value="{{review.movieTitle}}" />
+    </div>
 
     <!-- RATING -->
-    <p>
+    <div class="form-group">
         <label for="rating">Rating</label><br>
-        <select id="rating" type="text" name="rating">
+        <select class="form-contol" id="rating" type="text" name="rating">
             <option value="1 Star">1 Star</option>
             <option value="2 Stars">2 Stars</option>
             <option value="3 Stars">3 Stars</option>
             <option value="4 Stars">4 Stars</option>
             <option value="5 Stars">5 Stars</option>
         </select>
+    </div>
 
     <!-- DESCRIPTION -->
-    <p>
+    <div class="form-group">
         <label for="description-text">Description</label><br>
-        <textarea id="description-text" name="description" rows="10" value="{{review.description}}" /></textarea>
-    </p>
+        <textarea class="form-contol" id="description-text" name="description" rows="10" value="{{review.description}}" /></textarea>
+    </div>
 </fieldset>
