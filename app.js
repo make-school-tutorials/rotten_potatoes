@@ -7,6 +7,8 @@ module.exports = app
 const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(express.static('public'))
+
 app.use(methodOverride('_method'))
 
 const mongoose = require('mongoose')

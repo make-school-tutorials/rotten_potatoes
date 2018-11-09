@@ -6,7 +6,32 @@
     {{#each reviews}}
         <div class="col-sm-3">
             <h2><a href="/reviews/{{this._id}}">{{this.reviewTitle}}</a></h2>
-            <small>{{this.movieTitle}}</small>
+            <small>{{this.movieTitle}}</small><br>
+            <small>{{this.rating}}</small>
+            <!-- <h5>{{review.rating}}</h5> -->
+            <div class="stars-container">
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
         </div>
     {{/each}}
 </div>
+
+{{#each reviews}}
+<!-- CHANGE STAR VALUES -->
+<script type="text/javascript">
+$(".stars-container").each(function( index, container ) {
+    for (let i = 0; i <= $(container).children().length; i++) {
+        const star = $(container).children().eq(i);
+        if (i <= {{this.rating}} - 1) {
+            $(star).removeClass('far').addClass('fas');
+        } else {
+            $(star).removeClass('fas').addClass('far');
+        }
+    }
+})
+</script>
+{{/each}}
