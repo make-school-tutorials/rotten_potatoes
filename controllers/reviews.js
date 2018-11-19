@@ -1,3 +1,5 @@
+const Comment = require('../models/comment')
+
 module.exports = function(app, Review) {
     // INDEX
     app.get('/', (req, res) => {
@@ -15,11 +17,21 @@ module.exports = function(app, Review) {
 
     // SHOW
     app.get('/reviews/:id', (req, res) => {
-        Review.findById(req.params.id).then((review) => {
-            res.render('reviews-show', { review: review })
-        }).catch((err) => {
-            console.log(err.message);
-        })
+        Review.findById(req.params.id)
+        .then(review => {
+            //fetch its comments
+            console.log(req.params.id)
+            Comment.find({ reviewID: req.params.id })
+
+            .then(comments => {
+                console.log(review._id)
+                // console.log(comments)
+                res.render('reviews-show', { review: review, comments: comments })
+                })
+            }).catch((err) => {
+            // catch errors
+            console.log(err.message)
+        });
     })
 
     // CREATE

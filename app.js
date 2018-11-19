@@ -17,6 +17,9 @@ mongoose.connect('mongodb://localhost/rotten-potatoes')
 const Review = require('./models/review')
 const reviews = require('./controllers/reviews')(app, Review)
 
+const Comment = require('./models/comment')
+const comments = require('./controllers/comments')(app)
+
 var exphbs = require('express-handlebars')
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}))
